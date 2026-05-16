@@ -109,11 +109,11 @@ const initiateEssentialData = async () => {
       });
     }
 
-    let aws = await Bucket.findOne({ name: "leadxcrm" });
-    if (!aws) {
+    let aws = await Bucket.findOne({ name: "prm" });
+    if (!aws && process.env.awsAccesskey && process.env.awsSecretkey) {
       aws = await Bucket.create({
         region: "ap-south-1",
-        name: "leadxcrm",
+        name: "prm",
         accesskey: process.env.awsAccesskey,
         secretkey: process.env.awsSecretkey,
         subpath: process.env.PROJECT_NAME,
