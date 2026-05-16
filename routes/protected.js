@@ -1,0 +1,25 @@
+const express = require("express");
+const { uploadFile } = require("../controllers/protected/files");
+const router = express.Router();
+router.use("/companies", require("./company"));
+router.use("/features", require("./feature"));
+router.use("/currency", require("./currency"));
+router.use("/plan", require("./plan"));
+router.use("/coupon", require("./coupon"));
+router.use("/apps", require("./apps"));
+router.use("/dashboard", require("./dashboard"));
+router.use("/dashboard-presets", require("./dashboardPresets"));
+router.use("/cron-job", require("./cronJob"));
+router.use("/mail-recipient", require("./mailRecipient"));
+router.use("/developer-settings", require("./developerSettings"));
+router.use("/settings", require("./settings"));
+router.use("/timezones", require("./timezone"));
+router.use("/file", require("./files"));
+router.use("/magic-login", require("./magicLogin"));
+router.use("/payment", require("./payment"));
+router.route("/upload").post(uploadFile);
+router.use("/subscription", require("./subscription"));
+router.use("/logs", require("./logs"));
+router.use("/reports", require("./reports"));
+
+module.exports = router;
